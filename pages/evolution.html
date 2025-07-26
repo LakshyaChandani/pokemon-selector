@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Evolution Tree</title>
+    <link rel="stylesheet" href="../css/evolution-main.css" />
+  </head>
+  <body class="evolution-page">
+    <div class="container">
+      <div class="header">
+        <button id="back-button" class="back-button">
+          <span class="arrow">←</span>
+          <span>Back to Selector</span>
+        </button>
+        <h1>Evolution Tree</h1>
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="pokeball-loader"></div>
+        <p>Loading evolution data...</p>
+      </div>
+
+      <div id="error-message" class="error hidden"></div>
+
+      <div id="evolution-display" class="evolution-display hidden">
+        <h2 id="pokemon-family-name"></h2>
+        <div id="evolution-tree" class="evolution-tree"></div>
+
+        <!-- Forms section will be dynamically added here -->
+      </div>
+    </div>
+
+    <script type="module" src="../js/evolution-main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+/* Core animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 5px 20px var(--shadow), 0 0 30px rgba(39, 174, 96, 0.3);
+  }
+  50% {
+    box-shadow: 0 5px 20px var(--shadow), 0 0 40px rgba(39, 174, 96, 0.5);
+  }
+}
+
+@keyframes pulse-red {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2),
+      0 4px 12px rgba(244, 67, 54, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(244, 67, 54, 0.1),
+      0 4px 16px rgba(244, 67, 54, 0.4);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideArrow {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes slideArrowVertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes scrollHint {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Shiny animation */
+.pokemon-image.shiny-active::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    45deg,
+    #ffeb3b,
+    #ffc107,
+    #ff9800,
+    #ffc107,
+    #ffeb3b
+  );
+  background-size: 400% 400%;
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.pokemon-image.shiny-active::after {
+  content: "✨";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  animation: sparkle 2s ease-in-out infinite;
+}

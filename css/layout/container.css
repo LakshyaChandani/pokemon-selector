@@ -1,0 +1,39 @@
+/* Main container */
+.container {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main page container */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: calc(100vh - 120px);
+}
+
+/* Evolution page container */
+body.evolution-page {
+  padding: var(--spacing);
+}
+
+.evolution-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px var(--shadow);
+  padding: 40px 24px;
+  transition: all var(--transition-slow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

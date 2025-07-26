@@ -1,0 +1,190 @@
+/* Pokemon Display */
+.pokemon-display {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  align-items: start;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  will-change: transform;
+}
+
+.pokemon-display.hidden {
+  display: none !important;
+  opacity: 0;
+  transform: none;
+  animation: none;
+}
+
+/* Pokemon Card Section */
+.pokemon-card-section {
+  position: sticky;
+  top: 120px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Pokemon Header */
+.pokemon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+#pokemon-id {
+  color: var(--text-secondary);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Pokemon Image */
+.pokemon-image {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.pokemon-image img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  cursor: pointer;
+  transition: transform var(--transition);
+  will-change: transform;
+}
+
+.pokemon-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation */
+.pokemon-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Pokemon Details Section */
+.pokemon-details-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Types and Physical Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Consistent card styling for all sections */
+.info-section,
+.stats-section,
+.type-effectiveness-section {
+  background: var(--bg-tertiary);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+/* Physical section specific - make it compact */
+.info-section:last-child {
+  min-width: 180px;
+  max-width: 220px;
+}
+
+/* Section headers - consistent capitalization */
+.info-section h3,
+.type-effectiveness-section h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  text-transform: capitalize;
+  font-family: inherit;
+}
+
+/* Info panel content text */
+.info-section p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.3rem 0;
+  font-weight: 400;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: inherit;
+}
+
+/* Physical stats values */
+.info-section #pokemon-height,
+.info-section #pokemon-weight {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1rem;
+  margin-left: auto;
+  padding-left: 0.5rem;
+}
+
+/* Types section left align */
+.types {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .info-section,
+[data-theme="dark"] .stats-section,
+[data-theme="dark"] .type-effectiveness-section {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pokemon-display {
+    grid-template-columns: 1fr;
+  }
+
+  .pokemon-card-section {
+    position: static;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Description section */
+.description-section {
+  grid-column: 1 / -1; /* Full width */
+}
+
+.description-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Make types section more compact */
+.info-section:first-child {
+  flex: 0 1 auto;
+}
+
+.types {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 0;
+}

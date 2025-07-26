@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Selector</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="header-section" id="header">
+        <div class="header-content">
+          <h1>Pokémon Selector</h1>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Search Section -->
+        <section class="search-section expanded" id="search-section">
+          <div class="welcome-message">
+            <h2>Welcome to the Pokédex</h2>
+            <p>Search for any Pokémon by name or number</p>
+          </div>
+
+          <div class="search-wrapper">
+            <div class="input-group">
+              <label for="pokemon-search">Search Pokémon:</label>
+              <div class="input-wrapper">
+                <div class="autocomplete-wrapper">
+                  <input
+                    type="text"
+                    id="pokemon-search"
+                    placeholder="Enter name or number (1-1025)"
+                  />
+                </div>
+                <button id="search-button">Search</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats for expanded view -->
+          <div class="quick-stats">
+            <div class="stat-card">
+              <h3>1025</h3>
+              <p>Total Pokémon</p>
+            </div>
+            <div class="stat-card">
+              <h3>18</h3>
+              <p>Types</p>
+            </div>
+            <div class="stat-card">
+              <h3>9</h3>
+              <p>Generations</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Loading and Error Messages -->
+        <div id="loading" class="loading hidden">Loading...</div>
+        <div id="error-message" class="error hidden"></div>
+
+        <!-- Pokemon Display -->
+        <div id="pokemon-display" class="pokemon-display hidden">
+          <!-- Left Column - Pokemon Card -->
+          <aside class="pokemon-card-section">
+            <div class="pokemon-header">
+              <h2 id="pokemon-title"></h2>
+              <span id="pokemon-id"></span>
+            </div>
+
+            <div class="pokemon-image">
+              <img id="pokemon-sprite" src="" alt="Pokémon sprite" />
+            </div>
+
+            <div class="pokemon-navigation">
+              <button id="prev-pokemon" class="nav-btn">← Previous</button>
+              <button id="next-pokemon" class="nav-btn">Next →</button>
+            </div>
+
+            <button id="shiny-toggle" class="shiny-toggle">
+              ✨ View Shiny
+            </button>
+          </aside>
+
+          <!-- Right Column - Pokemon Details -->
+          <section class="pokemon-details-section">
+            <!-- Description Section -->
+            <div class="info-section description-section">
+              <h3>Description</h3>
+              <p id="pokemon-description" class="description-text">
+                Loading description...
+              </p>
+            </div>
+
+            <!-- Types and Physical Grid -->
+            <div class="info-grid">
+              <div class="info-section">
+                <h3>Types</h3>
+                <div id="pokemon-types" class="types"></div>
+              </div>
+
+              <div class="info-section">
+                <h3>Physical</h3>
+                <p>Height: <span id="pokemon-height"></span></p>
+                <p>Weight: <span id="pokemon-weight"></span></p>
+              </div>
+            </div>
+
+            <div class="stats-section">
+              <div id="pokemon-stats" class="stats"></div>
+            </div>
+
+            <div class="type-effectiveness-section">
+              <h3>Type Effectiveness</h3>
+              <div id="type-effectiveness" class="type-effectiveness">
+                <div class="effectiveness-group">
+                  <h4>Weak Against</h4>
+                  <div id="weak-against" class="type-list"></div>
+                </div>
+                <div class="effectiveness-group">
+                  <h4>Strong Against</h4>
+                  <div id="strong-against" class="type-list"></div>
+                </div>
+                <div
+                  class="effectiveness-group"
+                  id="immune-group"
+                  style="display: none"
+                >
+                  <h4>Immune To</h4>
+                  <div id="immune-to" class="type-list"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Help Button -->
+    <div
+      class="keyboard-help-indicator"
+      id="help-button"
+      title="Keyboard Shortcuts"
+    >
+      <kbd>?</kbd>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="help-modal hidden">
+      <div class="help-modal-content">
+        <div class="help-modal-header">
+          <h2>Help & Keyboard Shortcuts</h2>
+          <button class="close-modal modal-close-btn">&times;</button>
+        </div>
+        <div class="help-content">
+          <div class="shortcut-group">
+            <h3>Search</h3>
+            <div class="shortcut">
+              <kbd>/</kbd>
+              <span>Focus search input</span>
+            </div>
+            <div class="shortcut">
+              <kbd>Enter</kbd>
+              <span>Search for Pokémon</span>
+            </div>
+            <div class="shortcut">
+              <kbd>Esc</kbd>
+              <span>Clear search / Close autocomplete</span>
+            </div>
+          </div>
+
+          <div class="shortcut-group">
+            <h3>Navigation</h3>
+            <div class="shortcut">
+              <kbd>←</kbd>
+              <span>Previous Pokémon</span>
+            </div>
+            <div class="shortcut">
+              <kbd>→</kbd>
+              <span>Next Pokémon</span>
+            </div>
+            <div class="shortcut">
+              <kbd>S</kbd>
+              <span>Toggle shiny form</span>
+            </div>
+            <div class="shortcut">
+              <kbd>F</kbd>
+              <span>View alternate forms</span>
+            </div>
+            <div class="shortcut">
+              <kbd>E</kbd>
+              <span>View evolution tree</span>
+            </div>
+          </div>
+
+          <div class="shortcut-group">
+            <h3>General</h3>
+            <div class="shortcut">
+              <kbd>T</kbd>
+              <span>Toggle dark/light theme</span>
+            </div>
+            <div class="shortcut">
+              <kbd>?</kbd>
+              <span>Show this help menu</span>
+            </div>
+          </div>
+
+          <div class="shortcut-group">
+            <h3>Tips</h3>
+            <div class="shortcut">
+              <span>• Search by name (e.g., "Pikachu") or number (1-1025)</span>
+            </div>
+            <div class="shortcut">
+              <span
+                >• Click on the Pokémon image to view its evolution tree</span
+              >
+            </div>
+            <div class="shortcut">
+              <span>• Use autocomplete suggestions for faster searching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+/* Global CSS Variables: Design tokens for colors, spacing, radii, and transitions */
+
+:root {
+  /* Main color scheme */
+  --bg-primary: #f0f0f0; /* Main background color */
+  --bg-secondary: #fff; /* Card and container backgrounds */
+  --bg-tertiary: #f8f8f8; /* Subtle background variations */
+  --text-primary: #333; /* Primary text color */
+  --text-secondary: #666; /* Secondary text color */
+  --text-tertiary: #555; /* Tertiary text elements */
+  --border: #ddd; /* Border color for elements */
+  --shadow: rgba(0, 0, 0, 0.1); /* Standard shadow */
+  --shadow-hover: rgba(0, 0, 0, 0.15); /* Hover state shadow */
+  --accent: #4caf50; /* Primary accent color */
+  --accent-hover: #45a049; /* Accent hover state */
+  --error-bg: #ffebee; /* Error message background */
+  --error-text: #d32f2f; /* Error message text */
+
+  /* Evolution page colors */
+  --current: #27ae60; /* Current Pokemon indicator */
+  --evolution-accent: #3498db; /* Evolution chain accent */
+  --evolution-accent-hover: #2980b9; /* Evolution hover state */
+
+  /* Layout, border radius, and animation */
+  --radius-sm: 8px; /* Small border radius */
+  --radius-md: 12px; /* Medium border radius */
+  --radius-lg: 20px; /* Large border radius */
+  --radius-xl: 25px; /* Extra large border radius */
+  --transition: 0.2s; /* Standard transition duration */
+  --transition-slow: 0.3s ease; /* Slower transition with easing */
+  --spacing: 20px; /* Standard spacing unit */
+
+  /* Box shadows */
+  --shadow-sm: 0 2px 4px var(--shadow);
+  --shadow-md: 0 4px 8px var(--shadow-hover);
+  --shadow-lg: 0 10px 30px var(--shadow);
+}

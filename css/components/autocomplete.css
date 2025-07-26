@@ -1,0 +1,154 @@
+/* Main autocomplete dropdown container - positioned below input field */
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 1001;
+  border: 2px solid var(--border);
+  border-top: none;
+  margin-top: -2px;
+}
+
+/* Individual autocomplete suggestion items with interactive states */
+.autocomplete-items div,
+.autocomplete-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition);
+  color: var(--text-primary);
+}
+
+/* Hover state with subtle animation and left padding increase */
+.autocomplete-items div:hover,
+.autocomplete-item:hover {
+  background: var(--bg-tertiary);
+  padding-left: 20px;
+}
+
+/* Active/selected state for keyboard navigation and current selection */
+.autocomplete-active,
+.autocomplete-item.selected {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+/* Highlighted text within suggestions - emphasizes matching search terms */
+.autocomplete-item .autocomplete-text strong,
+.autocomplete-items .autocomplete-text strong {
+  color: var(--accent);
+  font-weight: 700; /* Keep it bold as per original intent, but now colored */
+}
+
+/* Loading state indicator for async search operations */
+.autocomplete-loading {
+  padding: 10px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Temporary loading indicator overlay while fetching results */
+.autocomplete-loading-indicator {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  font-style: italic;
+  z-index: 999;
+}
+
+/* Enhanced suggestion items with flexible layout for Pokémon data */
+.autocomplete-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Pokémon ID number displayed on the right side of suggestions */
+.autocomplete-item .pokemon-id {
+  color: var(--text-secondary);
+  font-size: 0.85em;
+  margin-left: auto;
+  padding-left: 10px;
+}
+
+/* Form type indicator for alternate Pokémon forms */
+.autocomplete-item .form-type {
+  color: var(--accent);
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* Search term highlighting within suggestion text */
+.autocomplete-item mark {
+  background: var(--accent);
+  color: white;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Empty state message when no search results are found */
+.autocomplete-no-results {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Performance optimization - hide dropdown when no content is present */
+.autocomplete-items:empty {
+  display: none;
+}
+
+/* Modern CSS fallback - hide when no child divs exist */
+.autocomplete-items:not(:has(div)) {
+  display: none;
+}
+
+/* Text content wrapper for proper inline display */
+.autocomplete-text {
+  display: inline;
+  white-space: nowrap;
+}
+
+/* Emphasized text within suggestions - inherits parent color for consistency */
+.autocomplete-text strong {
+  display: inline;
+  font-weight: bold;
+  color: inherit;
+}
+
+/* Text overflow handling for long Pokémon names and content */
+.autocomplete-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dark theme specific adjustments for better contrast */
+[data-theme="dark"] .autocomplete-loading-indicator {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+/* Dark theme highlight color optimization for better readability */
+[data-theme="dark"] .autocomplete-item mark {
+  background: var(--accent);
+  color: var(--bg-primary);
+}

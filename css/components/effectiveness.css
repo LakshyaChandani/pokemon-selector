@@ -1,0 +1,305 @@
+/* Type Effectiveness Section */
+.type-effectiveness {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.effectiveness-group {
+  background: var(--bg-primary);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated gradient overlay */
+.effectiveness-group::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.effectiveness-group:hover::before {
+  opacity: 1;
+}
+
+.effectiveness-group h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.effectiveness-group .type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Weak against styling - Clean red theme */
+.effectiveness-group:has(#weak-against) {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.15) 0%,
+    rgba(239, 68, 68, 0.08) 100%
+  );
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: inset 0 1px 3px rgba(239, 68, 68, 0.1);
+}
+
+.effectiveness-group:has(#weak-against) h4 {
+  color: #dc2626;
+}
+
+.effectiveness-group:has(#weak-against) h4::before {
+  content: "⚠️";
+  font-size: 1.1em;
+}
+
+/* Strong against styling - Clean green theme */
+.effectiveness-group:has(#strong-against) {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.15) 0%,
+    rgba(34, 197, 94, 0.08) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: inset 0 1px 3px rgba(34, 197, 94, 0.1);
+}
+
+.effectiveness-group:has(#strong-against) h4 {
+  color: #16a34a;
+}
+
+.effectiveness-group:has(#strong-against) h4::before {
+  content: "💪";
+  font-size: 1.1em;
+}
+
+/* Immune to styling - Clean blue theme */
+#immune-group {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.08) 100%
+  );
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: inset 0 1px 3px rgba(59, 130, 246, 0.1);
+}
+
+#immune-group h4 {
+  color: #2563eb;
+}
+
+#immune-group h4::before {
+  content: "🛡️";
+  font-size: 1.1em;
+}
+
+/* Type badge enhancements - Fix for multiplier text */
+.effectiveness-group .type-badge {
+  position: relative;
+  transition: all 0.2s ease;
+  /* Ensure badges can expand to fit content */
+  min-width: fit-content;
+  white-space: nowrap;
+  /* Add extra padding for badges with multipliers */
+  padding-right: 20px;
+}
+
+/* Specific styling for weak against badges to ensure multiplier fits */
+#weak-against .type-badge {
+  /* Ensure enough space for multiplier text */
+  padding: 6px 20px 6px 16px;
+}
+
+/* Super weak (4x) special styling */
+#weak-against .type-badge.super-weak {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.1) 0%,
+    transparent 100%
+  );
+  font-weight: 700;
+  transform: scale(1.05);
+}
+
+#weak-against .type-badge.super-weak::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), transparent);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Hover effects */
+.effectiveness-group {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.effectiveness-group:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.effectiveness-group:has(#weak-against):hover {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+}
+
+.effectiveness-group:has(#strong-against):hover {
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+}
+
+#immune-group:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
+
+/* Type badge hover effects */
+.effectiveness-group:hover .type-badge {
+  transform: translateY(-1px);
+}
+
+.effectiveness-group:hover .type-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .effectiveness-group:has(#weak-against) {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.12) 0%,
+    rgba(239, 68, 68, 0.06) 100%
+  );
+  border-color: rgba(239, 68, 68, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .effectiveness-group:has(#strong-against) {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.12) 0%,
+    rgba(34, 197, 94, 0.06) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] #immune-group {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.12) 0%,
+    rgba(59, 130, 246, 0.06) 100%
+  );
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .effectiveness-group:has(#weak-against) h4 {
+  color: #f87171;
+}
+
+[data-theme="dark"] .effectiveness-group:has(#strong-against) h4 {
+  color: #4ade80;
+}
+
+[data-theme="dark"] #immune-group h4 {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .effectiveness-group::before {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+[data-theme="dark"] .effectiveness-group:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* No types message */
+.no-types {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 0.8rem;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* Smooth transitions for all interactive elements */
+.effectiveness-group,
+.effectiveness-group .type-badge,
+.effectiveness-group h4 {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .effectiveness-group .type-badge {
+    font-size: 0.85em;
+    padding: 5px 16px 5px 12px;
+  }
+
+  #weak-against .type-badge {
+    padding: 5px 18px 5px 12px;
+  }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .effectiveness-group,
+  .effectiveness-group .type-badge {
+    transition: none;
+  }
+}
+
+/* Fallback for browsers without :has() support */
+@supports not selector(:has(*)) {
+  .effectiveness-group:first-child {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 68, 68, 0.15) 0%,
+      rgba(239, 68, 68, 0.08) 100%
+    );
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .effectiveness-group:nth-child(2) {
+    background: linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.15) 0%,
+      rgba(34, 197, 94, 0.08) 100%
+    );
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+}

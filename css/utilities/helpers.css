@@ -1,0 +1,143 @@
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
+
+/* Performance optimizations */
+.pokemon-display {
+  will-change: transform;
+}
+
+.stat-fill {
+  will-change: width;
+  transform: translateZ(0);
+}
+
+.pokemon-sprite {
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .type-badge {
+    border: 2px solid currentColor;
+  }
+
+  .stat-bar {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Print styles */
+@media print {
+  .theme-toggle,
+  .pokemon-navigation,
+  .shiny-toggle,
+  .search-section,
+  .header-section,
+  .new-search-btn,
+  .back-button {
+    display: none !important;
+  }
+
+  .pokemon-display {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .pokemon-card-section {
+    position: static !important;
+    box-shadow: none !important;
+    margin-bottom: 2rem;
+  }
+
+  .pokemon-details-section {
+    page-break-inside: avoid;
+  }
+
+  .info-section {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  body {
+    background: white !important;
+    padding: 0;
+  }
+
+  .container {
+    background: white !important;
+    box-shadow: none;
+    padding: 20px;
+  }
+
+  .pokemon-card {
+    break-inside: avoid;
+  }
+}
+
+/* Enhanced print styles */
+@media print {
+  /* Ensure proper page breaks */
+  .pokemon-card,
+  .info-section,
+  .effectiveness-group {
+    page-break-inside: avoid;
+  }
+
+  /* Show URLs for links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* Better contrast for printing */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  .type-badge {
+    border: 2px solid black !important;
+    padding: 4px 8px !important;
+  }
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+  z-index: 1000;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus trap for modals */
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-open .container > *:not(.forms-modal):not(.help-modal) {
+  filter: blur(2px);
+  pointer-events: none;
+}

@@ -1,0 +1,197 @@
+/* Forms modal */
+.forms-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.forms-modal-content {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.forms-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid var(--border);
+}
+
+.forms-modal-header h2 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.forms-grid {
+  padding: 30px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Help Modal */
+.help-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.help-modal-content {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.help-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid var(--border);
+}
+
+.help-content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.shortcut-group {
+  margin-bottom: 30px;
+}
+
+.shortcut-group:last-child {
+  margin-bottom: 0;
+}
+
+.shortcut-group h3 {
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.shortcut:hover {
+  background: var(--bg-tertiary);
+}
+
+.shortcut kbd {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  font-family: monospace;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 2px 0 var(--border);
+  min-width: 30px;
+  text-align: center;
+}
+
+.shortcut span {
+  color: var(--text-secondary);
+}
+
+/* Help Indicator */
+.keyboard-help-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 100;
+  opacity: 0.7;
+}
+
+.keyboard-help-indicator:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  border-color: var(--accent);
+}
+
+.keyboard-help-indicator kbd {
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 1.2em;
+  padding: 0;
+}
+
+/* Mobile - hide keyboard shortcuts */
+@media (max-width: 768px) {
+  .keyboard-help-indicator {
+    display: none;
+  }
+}

@@ -1,0 +1,149 @@
+/* Interactive Pokémon selection cards with hover animations and state indicators */
+.pokemon-card {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: 30px 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-slow);
+  border: 3px solid transparent;
+  position: relative;
+  min-width: 200px;
+  max-width: 250px;
+  margin: 0 10px 20px 10px;
+  box-shadow: 0 5px 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Enhanced hover state with dramatic elevation and border highlight */
+.pokemon-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 40px var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+/* Current/active Pokémon card with pulsing animation and special gradient */
+.pokemon-card.current {
+  border-color: var(--current);
+  background: linear-gradient(
+    135deg,
+    var(--bg-tertiary),
+    rgba(39, 174, 96, 0.1)
+  );
+  animation: pulse 2s infinite;
+}
+
+/* Pokémon sprite images with consistent sizing and enhanced shadows */
+.pokemon-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform var(--transition-slow);
+  filter: drop-shadow(0 5px 10px var(--shadow));
+}
+
+/* Playful image animation on card hover with rotation */
+.pokemon-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Stat cards */
+.stat-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
+.stat-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* Info sections */
+.info-section {
+  background: var(--bg-tertiary);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  height: 100%;
+}
+
+.info-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Form cards */
+.form-card {
+  background: var(--bg-tertiary);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+  min-width: 200px;
+  max-width: 250px;
+  margin: 0 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent);
+}
+
+.form-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.form-card h3 {
+  margin: 10px 0 5px;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.form-card .form-id {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 5px 0 10px;
+}
+
+/* Ensure type tags are consistently at the bottom of the card */
+.form-card .types-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto; /* Pushes to the bottom if card is flex column */
+  padding-top: 10px; /* Space above types */
+}

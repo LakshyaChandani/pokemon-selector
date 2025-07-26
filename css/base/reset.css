@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Universal box-sizing and margin/padding reset for consistent layout */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, Arial, sans-serif;
+  background: var(--bg-primary); /* Use theme variable for background */
+  min-height: 100vh; /* Ensure full viewport height */
+  transition: background var(--transition); /* Smooth theme transitions */
+  margin: 0;
+  line-height: 1.6; /* Improve readability */
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Custom Scrollbar Styling for Webkit Browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+  transition: background var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Accessibility: Focus ring for keyboard navigation on interactive elements */
+button:focus-visible,
+input:focus-visible,
+.pokemon-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}

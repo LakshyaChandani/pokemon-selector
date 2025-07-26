@@ -1,0 +1,26 @@
+/* Evolution page CSS - imports necessary styles */
+
+/* Base styles - loaded first */
+@import "./base/variables.css";
+@import "./base/reset.css";
+@import "./base/typography.css";
+
+/* Layout */
+@import "./layout/container.css";
+@import "./layout/header.css";
+@import "./layout/evolution-tree.css";
+
+/* Components */
+@import "./components/buttons.css";
+@import "./components/cards.css";
+@import "./components/types.css";
+@import "./components/loading.css";
+@import "./components/forms-section.css";
+
+/* Utilities */
+@import "./utilities/animations.css";
+@import "./utilities/helpers.css";
+@import "./utilities/responsive.css";
+
+/* Themes - must be last */
+@import "./themes/dark-mode.css";

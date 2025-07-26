@@ -1,0 +1,414 @@
+/* Dark mode variables */
+[data-theme="dark"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #252525;
+  --text-primary: #f5f5f5;
+  --text-secondary: #b8b8b8;
+  --text-tertiary: #d0d0d0;
+  --border: #3a3a3a;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(0, 0, 0, 0.7);
+  --error-bg: #2a1515;
+  --error-text: #ff6b6b;
+  --accent: #66bb6a;
+  --accent-hover: #4caf50;
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .info-section {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .pokemon-card-section {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .search-section {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] input {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+}
+
+[data-theme="dark"] .stat-bar {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .effectiveness-group {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] #weak-against-group {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 67, 54, 0.1) 0%,
+    rgba(244, 67, 54, 0.05) 100%
+  );
+  border-color: rgba(244, 67, 54, 0.3);
+}
+
+[data-theme="dark"] #strong-against-group {
+  background: linear-gradient(
+    135deg,
+    rgba(102, 187, 106, 0.1) 0%,
+    rgba(102, 187, 106, 0.05) 100%
+  );
+  border-color: rgba(102, 187, 106, 0.3);
+}
+
+[data-theme="dark"] #immune-group {
+  background: linear-gradient(
+    135deg,
+    rgba(66, 165, 245, 0.1) 0%,
+    rgba(66, 165, 245, 0.05) 100%
+  );
+  border-color: rgba(66, 165, 245, 0.3);
+}
+
+[data-theme="dark"] #weak-against .type-badge {
+  border-color: rgba(255, 107, 107, 0.6);
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+[data-theme="dark"] #weak-against .type-badge.super-weak {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3),
+    0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+[data-theme="dark"] #strong-against .type-badge {
+  border-color: rgba(102, 187, 106, 0.6);
+  box-shadow: 0 2px 8px rgba(102, 187, 106, 0.3);
+}
+
+[data-theme="dark"] #immune-to .type-badge {
+  border-color: rgba(66, 165, 245, 0.6);
+  box-shadow: 0 2px 8px rgba(66, 165, 245, 0.3);
+}
+
+/* Dark mode type badges - consistent white text for all */
+[data-theme="dark"] .type-badge {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+[data-theme="dark"] .type-badge:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Add dark overlay to light-colored type badges for better contrast */
+[data-theme="dark"] .type-normal::after,
+[data-theme="dark"] .type-flying::after,
+[data-theme="dark"] .type-electric::after,
+[data-theme="dark"] .type-ice::after,
+[data-theme="dark"] .type-fairy::after,
+[data-theme="dark"] .type-steel::after,
+[data-theme="dark"] .type-bug::after,
+[data-theme="dark"] .type-ground::after,
+[data-theme="dark"] .type-rock::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Dark mode buttons - consistent white text */
+[data-theme="dark"] button:not(.theme-toggle) {
+  background: var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: white !important;
+}
+
+[data-theme="dark"] button:hover:not(:disabled):not(.theme-toggle) {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: white !important;
+}
+
+[data-theme="dark"] button:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Navigation buttons */
+[data-theme="dark"] .nav-btn {
+  background: var(--accent);
+  color: white !important;
+}
+
+[data-theme="dark"] .nav-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  color: white !important;
+}
+
+[data-theme="dark"] .nav-btn:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Shiny toggle button */
+[data-theme="dark"] .shiny-toggle {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .shiny-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white !important;
+}
+
+[data-theme="dark"] .shiny-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white !important;
+}
+
+/* Theme toggle button */
+[data-theme="dark"] .theme-toggle {
+  background: var(--bg-tertiary);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* Dark mode autocomplete */
+[data-theme="dark"] .autocomplete-items {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .autocomplete-items div:hover {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .autocomplete-active {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .autocomplete-loading-indicator {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .autocomplete-item mark {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* Dark mode stat cards */
+[data-theme="dark"] .stat-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .stat-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode no types message */
+[data-theme="dark"] .no-types {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+/* Dark mode form indicators */
+[data-theme="dark"] .form-indicator {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode modals */
+[data-theme="dark"] .forms-modal-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .forms-modal-header {
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .close-modal:hover {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .form-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .form-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode keyboard shortcuts */
+[data-theme="dark"] .shortcut kbd {
+  background: var(--bg-primary);
+  border-color: var(--border);
+  box-shadow: 0 2px 0 var(--border);
+}
+
+[data-theme="dark"] .keyboard-help-indicator {
+  background: var(--bg-tertiary);
+  border-color: var(--border);
+}
+
+/* Dark mode evolution page */
+[data-theme="dark"] .pokemon-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .pokemon-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .evolution-method {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .evolution-method:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .branch-arrow::before {
+  background: var(--border);
+}
+
+[data-theme="dark"] .evolution-branches::before {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .evolution-branches .evolution-stage::before {
+  background: var(--border);
+}
+
+/* Dark mode loading states */
+[data-theme="dark"] .pokeball-loader {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 50%,
+    var(--bg-tertiary) 75%
+  );
+}
+
+/* Dark mode header */
+[data-theme="dark"] .header-section {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Dark mode scroll indicators */
+[data-theme="dark"] .evolution-tree::before {
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+[data-theme="dark"] .evolution-tree::after {
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+[data-theme="dark"] .forms-grid::before {
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+[data-theme="dark"] .forms-grid::after {
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+/* Dark mode error states */
+[data-theme="dark"] .error {
+  background: var(--error-bg);
+  border-color: var(--error-text);
+  color: var(--error-text);
+}
+
+[data-theme="dark"] .error-boundary {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+/* Dark mode tooltips */
+[data-theme="dark"] .tooltip {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode focus states */
+[data-theme="dark"] *:focus-visible {
+  outline-color: var(--accent);
+}
+
+/* Dark mode selection */
+[data-theme="dark"] ::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Dark mode links */
+[data-theme="dark"] a {
+  color: var(--accent);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--accent-hover);
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}

@@ -1,0 +1,32 @@
+/* Main CSS file - imports all styles for index page */
+
+/* Base styles - loaded first */
+@import "./base/variables.css";
+@import "./base/reset.css";
+@import "./base/typography.css";
+
+/* Layout */
+@import "./layout/container.css";
+@import "./layout/header.css";
+@import "./layout/search-section.css";
+@import "./layout/pokemon-display.css";
+
+/* Components */
+@import "./components/buttons.css";
+@import "./components/cards.css";
+@import "./components/forms.css";
+@import "./components/types.css";
+@import "./components/stats.css";
+@import "./components/autocomplete.css";
+@import "./components/modals.css";
+@import "./components/loading.css";
+@import "./components/effectiveness.css";
+@import "./components/forms-section.css"; /* This is important for form indicators */
+
+/* Utilities */
+@import "./utilities/animations.css";
+@import "./utilities/helpers.css";
+@import "./utilities/responsive.css";
+
+/* Themes - must be last to override */
+@import "./themes/dark-mode.css";

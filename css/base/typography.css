@@ -1,0 +1,162 @@
+/* Global font consistency with bolder, more readable fonts */
+body,
+input,
+button,
+select,
+textarea {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* Base weight for body and form elements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Import Inter font for better readability */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"); /* Removed 800, adjust if still needed */
+
+/* Headings - Adjusted weights */
+h1 {
+  color: var(--text-primary);
+  font-size: 2.75em;
+  margin: 0;
+  font-weight: 700; 
+  letter-spacing: -1.5px;
+  font-family: inherit;
+  line-height: 1.1;
+}
+
+h2 {
+  color: var(--text-primary);
+  font-size: 2.25em;
+  text-transform: capitalize;
+  margin: 0;
+  font-weight: 600; 
+  font-family: inherit;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+h3 {
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+  font-size: 1.35em;
+  font-weight: 600; 
+  font-family: inherit;
+  line-height: 1.3;
+}
+
+/* Text elements - Slightly larger and better line height */
+p {
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+  font-size: 1.05rem;
+  font-family: inherit;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Evolution page specific typography */
+.evolution-display h2 {
+  text-align: center;
+  color: var(--text-tertiary);
+  margin-bottom: 50px;
+  text-transform: capitalize;
+  font-size: 2em;
+  font-weight: 600; 
+}
+
+.pokemon-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  font-size: 1.4em;
+  font-weight: 600; 
+}
+
+.pokemon-number {
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  margin-bottom: 12px;
+  font-weight: 500; 
+}
+
+/* Ensure all text elements use consistent font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+.stat-name,
+.stat-value,
+.info-section p,
+.pokemon-header,
+#pokemon-id {
+  font-family: inherit; /* Good, ensures Inter propagates */
+}
+
+/* Specific adjustments for better readability */
+.info-section p {
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Bold text should be bold for better contrast */
+strong,
+b {
+  font-weight: 700; /* Keep as Bold for semantic emphasis */
+}
+
+/* Small text adjustments */
+small {
+  font-size: 0.875em;
+  font-weight: 500; /* Medium for small text is fine */
+}
+
+/* Labels and stat names - make them noticeable but not too heavy */
+.stat-name,
+label {
+  font-weight: 500; /* REDUCED from 600 to Medium */
+  letter-spacing: 0.3px;
+}
+
+/* Values and numbers - ensure they're readable */
+.stat-value,
+.pokemon-id {
+  font-weight: 500; /* Kept at Medium, gives some emphasis to data */
+}
+
+/* Button text - make it clear but not overly bold */
+button {
+  font-weight: 500; /* REDUCED from 600 to Medium */
+  letter-spacing: 0.3px;
+}
+
+/* Input fields - standard weight for readability */
+input,
+select,
+textarea {
+  /* This will inherit font-weight: 400 from the body rule now if you remove the specific rule below */
+  /* OR, explicitly set it if you prefer inputs to be slightly different from plain text */
+  font-weight: 400; /* REDUCED from 500 to Regular, consistent with body text */
+}
+
+/* Remove or adjust the more specific input rule if it exists further down:
+   This rule was:
+   input,
+   select,
+   textarea {
+     font-weight: 500;
+   }
+   It's now covered by the main body rule change or the explicit setting above.
+*/
+
+/* Type badges and small UI elements */
+.type-badge {
+  font-weight: 500; /* REDUCED from 600 to Medium */
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}

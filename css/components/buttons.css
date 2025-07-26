@@ -1,0 +1,233 @@
+/* css/components/buttons.css */
+
+/* Universal button foundation - consistent styling across all button elements */
+button {
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 24px;
+  transition: all var(--transition);
+  background: var(--accent);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* font-family will be inherited from typography.css's body/button rule */
+}
+
+/* Interactive hover state with elevation and color transition */
+button:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Active press state - removes elevation for tactile feedback */
+button:active {
+  transform: translateY(0);
+}
+
+/* Disabled state with reduced opacity and interaction prevention */
+button:disabled {
+  background: var(--border);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Primary navigation buttons - full-width with consistent sizing */
+.nav-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  width: 100%;
+}
+
+/* Navigation button hover state with consistent elevation effect */
+.nav-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Navigation button disabled state */
+.nav-btn:disabled {
+  background: var(--border);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Search action buttons with specific sizing and text wrapping prevention */
+#search-by-number,
+#search-by-name {
+  /* These will inherit font-weight: 700 from the base 'button' style */
+  padding: 12px 24px;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+/* Enhanced search buttons for expanded search interface */
+.search-section.expanded button {
+  /* This will also inherit font-weight: 700 from the base 'button' style */
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/* Evolution page back navigation with custom animation direction */
+.back-button {
+  /* This will inherit font-weight: 700 from the base 'button' style */
+  background: var(--evolution-accent);
+  color: white;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  padding: 12px 24px;
+}
+
+/* Back button hover with horizontal translation instead of vertical */
+.back-button:hover {
+  background: var(--evolution-accent-hover);
+  transform: translateX(-5px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Arrow icon within back button with independent animation */
+.back-button .arrow {
+  font-size: 1.2em;
+  transition: transform var(--transition);
+}
+
+/* Enhanced arrow animation on back button hover */
+.back-button:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* Centered overlay button for initiating new searches */
+.new-search-btn {
+  /* This will inherit font-weight: 700 from the base 'button' style */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+/* New search button hover with fill effect and scaling */
+.new-search-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Toggle button for shiny Pokémon variants with secondary styling */
+.shiny-toggle {
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+/* Shiny toggle hover state with color inversion and elevation */
+.shiny-toggle:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Alternative forms display button with primary accent styling */
+.forms-button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+/* Forms button hover state with consistent elevation effect */
+.forms-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Floating action button hover enhancement for help feature */
+.help-fab:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Mobile and tablet responsive adjustments for touch interfaces */
+@media (max-width: 768px) {
+  .nav-btn,
+  .shiny-toggle,
+  .forms-button {
+    /* font-weight will be inherited from their respective updated rules above */
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  button {
+    /* This will inherit the base button font-weight: 700 */
+    padding: 10px 20px;
+  }
+
+  .search-section.expanded button {
+    /* This will inherit the base button font-weight: 700 */
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Small mobile devices - optimize back button for limited space */
+@media (max-width: 480px) {
+  .back-button span:not(.arrow) {
+    display: none;
+  }
+
+  /* Compact back button for small screens - icon only */
+  .back-button {
+    padding: 10px 16px;
+  }
+}
